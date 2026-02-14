@@ -1,0 +1,8 @@
+pull_request_rules:
+  - name: auto merge
+    conditions:
+      - "#approved-reviews-by >= 0"
+      - check-success = continuous-integration
+    actions:
+      merge:
+        method: squash
