@@ -1,8 +1,9 @@
 pull_request_rules:
-  - name: auto merge
+  - name: Require Dependency Control Team for project.py
     conditions:
-      - "#approved-reviews-by >= 0"
-      - check-success = continuous-integration
+      - files~=^project\.py$
     actions:
-      merge:
-        method: squash
+      request_reviews:
+        teams:
+          - raghadOrg/dependency-control-team
+        required_approvals: 2
